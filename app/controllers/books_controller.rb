@@ -22,7 +22,7 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params.fetch(:id))
     respond_to do |f|
-      f.html
+      f.html { render react_component: 'Book', props: @book }
       f.json { render json: @book }
     end
   end
